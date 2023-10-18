@@ -31,15 +31,15 @@ export default function Button({
       ? "inline-flex px-[24px] py-[16px] gap-[8px] flex-col item-center rounded-xl"
       : ""
   }${
-    buttonSize === "wideNormal"
-      ? "flex w-[343px] px-[140px] py-[15px] item-center gap-[10px] rounded-xl justify-center"
-      : ""
-  } 
-  ${
-    buttonSize === "wideLarge"
-      ? "flex  w-[343px] px-[143px] py-[16px] gap-[10px] justify-center item-center rounded-xl"
-      : ""
-  }`;
+  //   buttonSize === "wideNormal"
+  //     ? "flex w-[343px] px-[140px] py-[15px] item-center gap-[10px] rounded-xl justify-center"
+  //     : ""
+  // } 
+  // ${
+  //   buttonSize === "wideLarge"
+  //     ? "flex  w-[343px] px-[143px] py-[16px] gap-[10px] justify-center item-center rounded-xl"
+  //     : ""
+  // }`;
 
   const buttonColor = `${
     color === "primary"

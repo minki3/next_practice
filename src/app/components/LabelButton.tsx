@@ -5,6 +5,7 @@ interface LabelButtonType {
   iconOnly?: boolean;
   text?: string;
   icon?: any;
+  disabled?: boolean;
 }
 
 export default function LabelButton({
@@ -12,6 +13,7 @@ export default function LabelButton({
   iconOnly = false,
   text,
   icon,
+  disabled = false,
 }: LabelButtonType) {
   const typeStyle = (type: string) => {
     switch (type) {
@@ -25,14 +27,14 @@ export default function LabelButton({
         throw new Error(`undefined type : ${type}`);
     }
   };
-  const iconOnlyStyle =
-    "inline-flex h-[32px] p-[8px] item-center gap-[8px] shrink-0 rounded";
-  const textOnlyStyle = `inline-flex h-[32px] p-[12px] justify-center items-center gap-[10px] shrink-0 rounded-lg`;
+  const iconOnlyStyle = "p-[8px] gap-[8px] shrink-0 rounded";
+  const textOnlyStyle = `flex p-[12px] justify-center gap-[10px] shrink-0 rounded-lg`;
   return (
     <button
-      className={`${typeStyle(type)} l-medium-12 ${
+      className={`${typeStyle(type)} ${
         iconOnly ? `${iconOnlyStyle}` : `${textOnlyStyle}`
-      }`}
+      }  l-medium-12 flex h-[32px] items-center`}
+      disabled={disabled}
     >
       {iconOnly ? icon : text}
     </button>
