@@ -9,6 +9,7 @@ interface primaryButtonType {
   fullWidth?: boolean;
   icon?: any;
   disabled?: boolean;
+  type?: "primary" | "secondary";
 }
 
 export default function PrimaryButton({
@@ -20,34 +21,36 @@ export default function PrimaryButton({
   fullWidth = false,
   icon,
   disabled = false,
+  type = "primary",
 }: primaryButtonType) {
   const ButtonColor = "bg-purple400 text-white hover:bg-purple500  ";
   const normalSubtle = "bg-purple100 text-purple400 hover:bg-purple200";
   const largeSubtle =
     "bg-white border border-solid border-purple400 text-purple400 hover:bg-purple200 disabled:border-none";
 
-  const PrimaryButtonSize = (size: string) => {
+  const primaryButtonSize = (size: string) => {
     switch (size) {
       case "normal":
         return `l-medium-14 rounded-xl py-[14px]  ${
           fullWidth
-            ? `px-[16px] w-[343px] ${
-                icon ? "justify-between" : "justify-center"
-              }`
+            ? `px-[16px] w-full ${icon ? "justify-between" : "justify-center"}`
             : "px-[16px] justify-center"
         } ${subtle ? normalSubtle : ButtonColor}`;
       case "large":
         return `l-medium-16 rounded-xl py-[16px] ${
           fullWidth
-            ? `px-[16px] w-[343px] ${
-                icon ? "justify-between" : "justify-center"
-              }`
+            ? `px-[16px] w-full ${icon ? "justify-between" : "justify-center"}`
             : "px-[24px] justify-center"
         } ${subtle ? largeSubtle : ButtonColor}`;
       default:
         throw new Error(`undefined type : ${size}`);
     }
   };
+  // const fullWidthButton = `px-[16px] ${
+  //   fullWidth
+  //     ? `w-full ${icon ? "justify-between" : "justify-center"}`
+  //     : `justify-center`
+  // }`;
 
   const alignButton = (align: string) => {
     switch (align) {
@@ -60,7 +63,7 @@ export default function PrimaryButton({
 
   return (
     <button
-      className={`${PrimaryButtonSize(
+      className={`${primaryButtonSize(
         size
       )} flex gap-[8px] disabled:bg-gray200 disabled:text-gray500 items-center ${alignButton(
         align
