@@ -1,4 +1,5 @@
 import React from "react";
+import Badge from "./Badge";
 
 interface ArcodionCardType {
   title: string;
@@ -21,7 +22,7 @@ export default function ArcodionCard({
         <span className=" l-medium-14 text-gray600 pb-[20px]">
           {description}
         </span>
-        <span>{level}</span>
+        <Badge type={level} />
       </div>
     </div>
   );

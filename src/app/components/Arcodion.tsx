@@ -14,7 +14,7 @@ export default function Arcodion({ text, icon }: ArcodionType) {
 
   return (
     <section
-      className={`w-full rounded-xl p-[20px]  ${
+      className={`w-full  rounded-xl p-[20px]  ${
         isOpen ? "bg-purple100 border border-purple300 " : "bg-gray100 "
       }`}
     >
@@ -53,7 +53,32 @@ export default function Arcodion({ text, icon }: ArcodionType) {
               />
             }
           />
-          <section className=" pt-[80px]">
+          <section className=" pt-[80px] grid grid-cols-4 gap-5">
+            <ArcodionCard
+              title="런타임 및 엔진"
+              description="이것은 설명입니다. 설명은 최대 2줄입니다. 이것은 설명입니다."
+              level="1"
+            />
+            <ArcodionCard
+              title="런타임 및 엔진"
+              description="이것은 설명입니다. 설명은 최대 2줄입니다. 이것은 설명입니다."
+              level="1-2"
+            />
+            <ArcodionCard
+              title="런타임 및 엔진"
+              description="이것은 설명입니다. 설명은 최대 2줄입니다. 이것은 설명입니다."
+              level="1-3"
+            />
+            <ArcodionCard
+              title="런타임 및 엔진"
+              description="이것은 설명입니다. 설명은 최대 2줄입니다. 이것은 설명입니다."
+              level="1-4"
+            />
+            <ArcodionCard
+              title="런타임 및 엔진"
+              description="이것은 설명입니다. 설명은 최대 2줄입니다. 이것은 설명입니다."
+              level="1-3"
+            />
             <ArcodionCard
               title="런타임 및 엔진"
               description="이것은 설명입니다. 설명은 최대 2줄입니다. 이것은 설명입니다."

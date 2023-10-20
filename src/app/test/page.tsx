@@ -15,6 +15,24 @@ export default function TestPage() {
           height={30}
         />
       />
+      <Arcodion
+        text="JavaScript"
+        icon=<Image
+          src="/javascript.png"
+          alt="javavscript"
+          width={30}
+          height={30}
+        />
+      />
+      <Arcodion
+        text="JavaScript"
+        icon=<Image
+          src="/javascript.png"
+          alt="javavscript"
+          width={30}
+          height={30}
+        />
+      />
     </div>
   );
 }
