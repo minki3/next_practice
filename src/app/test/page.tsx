@@ -8,6 +8,7 @@ export default function TestPage() {
     <div>
       <Arcodion
         text="JavaScript"
+        isNew={true}
         icon=<Image
           src="/javascript.png"
           alt="javavscript"
@@ -17,6 +18,7 @@ export default function TestPage() {
       />
       <Arcodion
         text="JavaScript"
+        isNew={false}
         icon=<Image
           src="/javascript.png"
           alt="javavscript"
@@ -26,6 +28,7 @@ export default function TestPage() {
       />
       <Arcodion
         text="JavaScript"
+        isNew={true}
         icon=<Image
           src="/javascript.png"
           alt="javavscript"

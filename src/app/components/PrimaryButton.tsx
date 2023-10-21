@@ -5,11 +5,9 @@ interface primaryButtonType {
   subtle?: boolean;
   size?: "normal" | "large";
   align?: "left" | "right";
-  iconOnly?: boolean;
   fullWidth?: boolean;
   icon?: any;
   disabled?: boolean;
-  type?: "primary" | "secondary";
 }
 
 export default function PrimaryButton({
@@ -17,11 +15,9 @@ export default function PrimaryButton({
   subtle = false,
   size = "normal",
   align = "left",
-  iconOnly = false,
   fullWidth = false,
   icon,
   disabled = false,
-  type = "primary",
 }: primaryButtonType) {
   const ButtonColor = "bg-purple400 text-white hover:bg-purple500  ";
   const normalSubtle = "bg-purple100 text-purple400 hover:bg-purple200";
@@ -31,26 +27,22 @@ export default function PrimaryButton({
   const primaryButtonSize = (size: string) => {
     switch (size) {
       case "normal":
-        return `l-medium-14 rounded-xl py-[14px]  ${
-          fullWidth
-            ? `px-[16px] w-full ${icon ? "justify-between" : "justify-center"}`
-            : "px-[16px] justify-center"
-        } ${subtle ? normalSubtle : ButtonColor}`;
+        return `l-medium-14 rounded-xl py-[14px] px-[16px]  ${
+          subtle ? normalSubtle : ButtonColor
+        }`;
       case "large":
-        return `l-medium-16 rounded-xl py-[16px] ${
-          fullWidth
-            ? `px-[16px] w-full ${icon ? "justify-between" : "justify-center"}`
-            : "px-[24px] justify-center"
-        } ${subtle ? largeSubtle : ButtonColor}`;
+        return `l-medium-16 rounded-xl py-[16px] px-[16px]  ${
+          subtle ? largeSubtle : ButtonColor
+        }`;
       default:
         throw new Error(`undefined type : ${size}`);
     }
   };
-  // const fullWidthButton = `px-[16px] ${
-  //   fullWidth
-  //     ? `w-full ${icon ? "justify-between" : "justify-center"}`
-  //     : `justify-center`
-  // }`;
+  const fullWidthButton = `${
+    fullWidth
+      ? `w-full ${icon && text ? "justify-between" : "justify-center"}`
+      : `justify-center`
+  }`;
 
   const alignButton = (align: string) => {
     switch (align) {
@@ -67,7 +59,7 @@ export default function PrimaryButton({
         size
       )} flex gap-[8px] disabled:bg-gray200 disabled:text-gray500 items-center ${alignButton(
         align
-      )}`}
+      )} ${fullWidthButton}`}
       disabled={disabled}
     >
       {icon && icon}

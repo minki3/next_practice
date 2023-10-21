@@ -7,10 +7,15 @@ import ArcodionCard from "./ArcodionCard";
 interface ArcodionType {
   icon: ReactNode;
   text: string;
+  isNew: boolean;
 }
 
-export default function Arcodion({ text, icon }: ArcodionType) {
+export default function Arcodion({ text, icon, isNew }: ArcodionType) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsOpen((prev) => !prev);
+  };
 
   return (
     <section
@@ -23,16 +28,10 @@ export default function Arcodion({ text, icon }: ArcodionType) {
           text={text}
           icon={icon}
           dropDown={
-            <Image
-              src="/dropdown.svg"
-              alt="dropdown"
-              width={24}
-              height={24}
-              onClick={() => {
-                setIsOpen((prev) => !prev);
-              }}
-            />
+            <Image src="/dropdown.svg" alt="dropdown" width={24} height={24} />
           }
+          toggleModal={toggleModal}
+          isNew={isNew}
         />
       )}
 
@@ -42,16 +41,10 @@ export default function Arcodion({ text, icon }: ArcodionType) {
             text={text}
             icon={icon}
             dropDown={
-              <Image
-                src="/dropup.svg"
-                alt="dropup"
-                width={24}
-                height={24}
-                onClick={() => {
-                  setIsOpen((prev) => !prev);
-                }}
-              />
+              <Image src="/dropup.svg" alt="dropup" width={24} height={24} />
             }
+            toggleModal={toggleModal}
+            isNew={isNew}
           />
           <section className=" pt-[80px] grid grid-cols-4 gap-5">
             <ArcodionCard
