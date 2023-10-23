@@ -1,22 +1,24 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 interface primaryButtonType {
   text?: string;
-  subtle?: boolean;
-  size?: "normal" | "large";
+  type?: "primary" | "secondary" | "white";
+  size?: "small" | "normal" | "large";
   align?: "left" | "right";
   fullWidth?: boolean;
-  icon?: any;
+  icon?: ReactNode;
+  secondIcon?: ReactNode;
   disabled?: boolean;
 }
 
 export default function PrimaryButton({
   text,
-  subtle = false,
+  type = "primary",
   size = "normal",
   align = "left",
   fullWidth = false,
   icon,
+  secondIcon,
   disabled = false,
 }: primaryButtonType) {
   const ButtonColor = "bg-purple400 text-white hover:bg-purple500  ";
@@ -28,14 +30,14 @@ export default function PrimaryButton({
     switch (size) {
       case "normal":
         return `l-medium-14 rounded-xl py-[14px] px-[16px]  ${
-          subtle ? normalSubtle : ButtonColor
+          type !== "primary" ? normalSubtle : ButtonColor
         }`;
       case "large":
         return `l-medium-16 rounded-xl py-[16px] px-[16px]  ${
-          subtle ? largeSubtle : ButtonColor
+          type !== "primary" ? largeSubtle : ButtonColor
         }`;
-      default:
-        throw new Error(`undefined type : ${size}`);
+      case "small":
+        throw new Error(`no size : ${size}`);
     }
   };
   const fullWidthButton = `${
@@ -62,8 +64,19 @@ export default function PrimaryButton({
       )} ${fullWidthButton}`}
       disabled={disabled}
     >
-      {icon && icon}
-      {text}
+      {secondIcon && secondIcon ? (
+        <div className="flex items-center gap-[8px]">
+          {icon && icon}
+          {text}
+        </div>
+      ) : (
+        <>
+          <span> {icon && icon}</span>
+          <span> {text}</span>
+        </>
+      )}
+
+      {secondIcon && secondIcon}
     </button>
   );
 }

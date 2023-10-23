@@ -1,9 +1,9 @@
 import React from "react";
 
 interface textButtonType {
-  text: string;
-  type?: "primary" | "destructive";
-  size?: "normal" | "small";
+  text?: string;
+  type?: "primary" | "secondary" | "white";
+  size?: "normal" | "small" | "large";
   disabled?: boolean;
 }
 
@@ -17,7 +17,7 @@ export default function textButton({
     switch (type) {
       case "primary":
         return "text-purple400 hover:text-purple600";
-      case "destructive":
+      case "secondary":
         return "text-red";
     }
   };
@@ -27,6 +27,8 @@ export default function textButton({
         return "l-medium-16";
       case "small":
         return "l-medium-14";
+      case "large":
+        throw new Error(`no size : ${size}`);
     }
   };
   return (

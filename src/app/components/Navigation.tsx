@@ -2,57 +2,61 @@ import PrimaryButton from "./PrimaryButton";
 import TextButton from "./TextButton";
 import LabelButton from "./LabelButton";
 import { FaBeer } from "@react-icons/all-files/fa/FaBeer";
+import ButtonComponent from "./ButtonComponent";
 
 export default function Navigation() {
   return (
     <div className="">
-      <LabelButton text="label" />
-      <LabelButton text="label" type="secondary" />
-      <LabelButton text="label" type="white" />
-      <LabelButton text="label" iconOnly type="white" icon=<FaBeer /> />
-      <PrimaryButton text="normal" />
-      <PrimaryButton text="normal" icon=<FaBeer /> />
-      <PrimaryButton text="normal" align="right" icon=<FaBeer /> />
-      <PrimaryButton text="normal" subtle fullWidth />
-      <PrimaryButton text="normal" subtle fullWidth icon=<FaBeer /> />
-      <PrimaryButton
-        text="normal"
-        subtle
-        fullWidth
-        align="right"
+      <ButtonComponent buttonType="label" disabled icon=<FaBeer /> />
+      <ButtonComponent
+        buttonType="label"
+        type="white"
+        disabled
         icon=<FaBeer />
       />
-      <PrimaryButton text="normal" subtle fullWidth icon=<FaBeer /> />
-      <PrimaryButton
-        text="large"
-        subtle
+      <ButtonComponent buttonType="label" type="secondary" icon=<FaBeer /> />
+      <ButtonComponent
+        buttonType="primary"
+        type="secondary"
+        size="large"
+        text="ddd"
+        icon=<FaBeer />
+      />
+      <ButtonComponent
+        buttonType="primary"
+        size="large"
+        text="dddddd"
+        secondIcon=<FaBeer />
+        icon=<FaBeer />
+      />
+      <ButtonComponent
+        buttonType="primary"
+        size="large"
+        text="dddddd"
+        fullWidth
+        icon=<FaBeer />
+      />
+      <ButtonComponent
+        buttonType="primary"
+        size="large"
+        text="dddddd1111"
+        fullWidth
+        secondIcon=<FaBeer />
+      />
+      <ButtonComponent
+        buttonType="primary"
         size="large"
         fullWidth
-        align="right"
         icon=<FaBeer />
+        secondIcon=<FaBeer />
       />
-      <PrimaryButton text="large" size="large" icon=<FaBeer /> />
-      <PrimaryButton text="large" subtle size="large" icon=<FaBeer /> />
-      <PrimaryButton
-        text="large1"
-        subtle
-        size="large"
-        fullWidth
-        align="right"
-        icon=<FaBeer />
+      <ButtonComponent buttonType="text" text="ddd" />
+      <ButtonComponent
+        buttonType="text"
+        text="ddd"
+        size="small"
+        type="secondary"
       />
-      <PrimaryButton
-        text="large"
-        subtle
-        size="large"
-        fullWidth
-        icon=<FaBeer />
-      />
-      <PrimaryButton subtle size="large" text="dd" fullWidth />
-      <TextButton text="test" />
-      <TextButton text="test" size="small" />
-      <TextButton text="test" type="destructive" />
-      <TextButton text="test" type="destructive" size="small" />
     </div>
   );
 }

@@ -1,16 +1,14 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 interface LabelButtonType {
   type?: "primary" | "secondary" | "white";
-  iconOnly?: boolean;
   text?: string;
-  icon?: any;
+  icon?: ReactNode;
   disabled?: boolean;
 }
 
 export default function LabelButton({
   type = "primary",
-  iconOnly = false,
   text,
   icon,
   disabled = false,
@@ -24,19 +22,21 @@ export default function LabelButton({
       case "white":
         return "bg-white rounded border border-solid border-purple400 hover:bg-purple100 disabled:opacity-50 text-center text-purple400 disabled:text-purple300";
       default:
-        throw new Error(`undefined type : ${type}`);
+        throw new Error(`no type : ${type}`);
     }
   };
-  const iconOnlyStyle = "p-[8px] gap-[8px] shrink-0 rounded";
-  const textOnlyStyle = `flex p-[12px] justify-center gap-[10px] shrink-0 rounded-lg`;
+  // const iconOnlyStyle = "p-[8px] gap-[8px] shrink-0 rounded";
+  // const textOnlyStyle = `flex p-[12px] justify-center gap-[10px] shrink-0 rounded-lg`;
+
   return (
     <button
-      className={`${typeStyle(type)} ${
-        iconOnly ? `${iconOnlyStyle}` : `${textOnlyStyle}`
-      }  l-medium-12 flex h-[32px] items-center`}
+      className={`${typeStyle(
+        type
+      )}  l-medium-12 flex h-[32px] items-center justify-center gap-[8px] shrink-0 rounded-lg p-[10px]`}
       disabled={disabled}
     >
-      {iconOnly ? icon : text}
+      {icon && icon}
+      {text}
     </button>
   );
 }
