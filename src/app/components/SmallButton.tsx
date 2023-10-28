@@ -7,7 +7,7 @@ interface LabelButtonType {
   disabled?: boolean;
 }
 
-export default function LabelButton({
+export default function SmallButton({
   type = "primary",
   text,
   icon,
@@ -25,8 +25,6 @@ export default function LabelButton({
         throw new Error(`no type : ${type}`);
     }
   };
-  // const iconOnlyStyle = "p-[8px] gap-[8px] shrink-0 rounded";
-  // const textOnlyStyle = `flex p-[12px] justify-center gap-[10px] shrink-0 rounded-lg`;
 
   return (
     <button

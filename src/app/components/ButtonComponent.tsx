@@ -1,22 +1,20 @@
 import React, { ReactNode } from "react";
-import LabelButton from "./LabelButton";
-import PrimaryButton from "./PrimaryButton";
-import TextButton from "./TextButton";
+import SmallButton from "./SmallButton";
+import NormalButton from "./NormalButton";
+import LargeButton from "./LargeButton";
 
 interface ButtonComponent {
-  buttonType: "label" | "primary" | "text";
+  size: "small" | "normal" | "large";
   text?: string;
   icon?: ReactNode;
   secondIcon?: ReactNode;
   type?: "primary" | "secondary" | "white";
-  size?: "small" | "normal" | "large";
   disabled?: boolean;
   fullWidth?: boolean;
   align?: "left" | "right";
 }
 
 export default function ButtonComponent({
-  buttonType,
   text,
   icon,
   secondIcon,
@@ -26,36 +24,43 @@ export default function ButtonComponent({
   fullWidth = false,
   align = "left",
 }: ButtonComponent) {
-  const buttonTypeStyle = (buttonType: string) => {
-    switch (buttonType) {
-      case "label":
+  const buttonSize = (size: string) => {
+    switch (size) {
+      case "small":
         return (
-          <LabelButton
+          <SmallButton
             text={text}
             icon={icon}
             disabled={disabled}
             type={type}
           />
         );
-      case "primary":
+      case "normal":
         return (
-          <PrimaryButton
+          <NormalButton
             text={text}
-            type={type}
-            size={size}
             align={align}
             fullWidth={fullWidth}
             icon={icon}
             secondIcon={secondIcon}
             disabled={disabled}
+            type={type}
           />
         );
-      case "text":
+      case "large":
         return (
-          <TextButton text={text} type={type} size={size} disabled={disabled} />
+          <LargeButton
+            text={text}
+            align={align}
+            fulllWidth={fullWidth}
+            icon={icon}
+            secondIcon={secondIcon}
+            disabled={disabled}
+            type={type}
+          />
         );
     }
   };
 
-  return <>{buttonTypeStyle(buttonType)}</>;
+  return <>{buttonSize(size)}</>;
 }

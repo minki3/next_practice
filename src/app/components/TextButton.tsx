@@ -19,6 +19,8 @@ export default function textButton({
         return "text-purple400 hover:text-purple600";
       case "secondary":
         return "text-red";
+      case "white":
+        throw new Error(`no color : ${type}`);
     }
   };
   const textButtonSize = (size: string) => {
