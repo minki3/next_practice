@@ -80,6 +80,7 @@ export default function Arcodion({ text, icon, isNew }: ArcodionType) {
           </section>
         </>
       )}
+      <div></div>
     </section>
   );
 }
