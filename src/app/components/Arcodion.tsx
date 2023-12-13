@@ -1,35 +1,31 @@
-"use client";
-import React, { ReactNode, useState } from "react";
-import Image from "next/image";
-import ArcodionHeader from "./ArcodionHeader";
-import ArcodionCard from "./ArcodionCard";
+'use client'
+import React, { ReactNode, useState } from 'react'
+import Image from 'next/image'
+import ArcodionHeader from './ArcodionHeader'
+import ArcodionCard from './ArcodionCard'
 
 interface ArcodionType {
-  icon: ReactNode;
-  text: string;
-  isNew: boolean;
+  icon: ReactNode
+  text: string
+  isNew: boolean
 }
 
 export default function Arcodion({ text, icon, isNew }: ArcodionType) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   const toggleModal = () => {
-    setIsOpen((prev) => !prev);
-  };
+    setIsOpen((prev) => !prev)
+  }
 
   return (
     <section
-      className={`w-full  rounded-xl p-[20px]  ${
-        isOpen ? "bg-purple100 border border-purple300 " : "bg-gray100 "
-      }`}
+      className={`w-full  rounded-xl p-[20px]  ${isOpen ? 'bg-purple100 border border-purple300 ' : 'bg-gray100 '}`}
     >
       {!isOpen && (
         <ArcodionHeader
           text={text}
           icon={icon}
-          dropDown={
-            <Image src="/dropdown.svg" alt="dropdown" width={24} height={24} />
-          }
+          dropDown={<Image src="/dropdown.svg" alt="dropdown" width={24} height={24} />}
           toggleModal={toggleModal}
           isNew={isNew}
         />
@@ -40,9 +36,7 @@ export default function Arcodion({ text, icon, isNew }: ArcodionType) {
           <ArcodionHeader
             text={text}
             icon={icon}
-            dropDown={
-              <Image src="/dropup.svg" alt="dropup" width={24} height={24} />
-            }
+            dropDown={<Image src="/dropup.svg" alt="dropup" width={24} height={24} />}
             toggleModal={toggleModal}
             isNew={isNew}
           />
@@ -82,5 +76,5 @@ export default function Arcodion({ text, icon, isNew }: ArcodionType) {
       )}
       <div></div>
     </section>
-  );
+  )
 }

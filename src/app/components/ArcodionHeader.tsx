@@ -1,26 +1,17 @@
-import React, { ReactNode } from "react";
-import Image from "next/image";
+import React, { ReactNode } from 'react'
+import Image from 'next/image'
 
 interface ArcodionHeaderType {
-  text: string;
-  icon: ReactNode;
-  dropDown: ReactNode;
-  toggleModal: () => void;
-  isNew: boolean;
+  text: string
+  icon: ReactNode
+  dropDown: ReactNode
+  toggleModal: () => void
+  isNew: boolean
 }
 
-export default function ArcodionHeader({
-  text,
-  icon,
-  dropDown,
-  toggleModal,
-  isNew,
-}: ArcodionHeaderType) {
+export default function ArcodionHeader({ text, icon, dropDown, toggleModal, isNew }: ArcodionHeaderType) {
   return (
-    <section
-      className="flex justify-between h-[30px] shrink-0 "
-      onClick={toggleModal}
-    >
+    <section className="flex justify-between h-[30px] shrink-0 " onClick={toggleModal}>
       <div className="flex items-center l-bold-18 text-gray900 tracking-[-0.5px] gap-[8px] ">
         <span className="shrink-0">{icon}</span>
         <span>{text}</span>
@@ -28,5 +19,5 @@ export default function ArcodionHeader({
       </div>
       {dropDown}
     </section>
-  );
+  )
 }
