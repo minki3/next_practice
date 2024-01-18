@@ -1,8 +1,12 @@
-import StoreProvider from '@/app/StoreProvider'
+// import StoreProvider from '@/app/StoreProvider'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Provider } from 'react-redux'
+import React from 'react'
+import { PersistGate } from 'redux-persist/integration/react'
+
+import StoreProvider from '@/app/StoreProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 

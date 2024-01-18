@@ -1,6 +1,6 @@
-import Introduce from "./components/Introduce";
-import Navigation from "./components/Navigation";
-import About from "./components/About";
+import Introduce from './components/Introduce'
+import Navigation from './components/Navigation'
+import About from './components/About'
 
 export default function Home() {
   return (
@@ -9,5 +9,5 @@ export default function Home() {
       <Introduce />
       <About />
     </main>
-  );
+  )
 }
